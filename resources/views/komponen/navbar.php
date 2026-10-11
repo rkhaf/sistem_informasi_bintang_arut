@@ -22,7 +22,7 @@
             <li><a href="index.php#motif" class="nav-link">Koleksi</a></li>
 
             <li><a href="galeri" class="nav-link">Galeri</a></li>
-            <li><a href="profile.html" class="nav-link">Profil</a></li>
+            <li><a href="profile" class="nav-link">Profil</a></li>
             <li><a href="belanja" class="nav-link">Belanja</a></li>
             <li class="mobile-only" style="display: none;">
             <a href="login.html" class="btn-pill btn-pill-royal" style="width: 100%; justify-content: center; margin-top: 16px;">Masuk Akun</a>
@@ -32,7 +32,7 @@
 
         <!-- Right Action Buttons -->
         <div class="nav-actions">
-        <a href="dashboard.html" class="nav-icon-btn" aria-label="Dashboard" style="background-color: var(--color-accent); color: white;">
+        <a href="dashboard" class="nav-icon-btn" aria-label="Dashboard" style="background-color: var(--color-accent); color: white;">
             <i class="fas-fa-user"></i>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -41,7 +41,7 @@
         </a>
 
         <!-- Login Button -->
-        <a href="login.html" class="btn-pill btn-pill-blue" style="padding: 8px 18px; font-size: 0.88rem;">
+        <a href="login" class="btn-pill btn-pill-blue" style="padding: 8px 18px; font-size: 0.88rem;">
             <span>Login</span>
             <div class="btn-arrow-circle" style="width: 22px; height: 22px;">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
