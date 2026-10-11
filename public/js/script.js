@@ -136,24 +136,38 @@ function initHeaderScroll() {
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
 
-  // Active section spy
+  // Active section spy.
+  // Hanya berjalan untuk section yang anchor-nya memang ada di navbar
+  // (mis. homepage: #beranda, #tentang, #proses, #motif).
+  // Di page lain, state aktif sudah ditentukan oleh PHP di sisi server,
+  // jadi spy dilewati agar class "active" tidak hilang saat di-scroll.
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-menu .nav-link');
 
   if (sections.length > 0 && navLinks.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            const linkHash = new URL(link.href, window.location.href).hash;
-            link.classList.toggle('active', linkHash === `#${id}`);
-          });
-        }
-      });
-    }, { rootMargin: '-30% 0px -60% 0px' });
+    const navHashes = new Set();
+    navLinks.forEach(link => {
+      const linkHash = new URL(link.href, window.location.href).hash;
+      if (linkHash) navHashes.add(linkHash);
+    });
 
-    sections.forEach(sec => observer.observe(sec));
+    const spySections = Array.from(sections).filter(sec => navHashes.has(`#${sec.id}`));
+
+    if (spySections.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              const linkHash = new URL(link.href, window.location.href).hash;
+              link.classList.toggle('active', linkHash === `#${id}`);
+            });
+          }
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+
+      spySections.forEach(sec => observer.observe(sec));
+    }
   }
 }
 

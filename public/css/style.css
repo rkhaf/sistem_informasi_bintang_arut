@@ -371,6 +371,18 @@ button {
   box-shadow: 0 4px 12px var(--color-accent-glow);
 }
 
+/* Active state untuk tombol Login & ikon Dashboard di navbar */
+.btn-pill-blue.active {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  box-shadow: 0 4px 12px var(--color-accent-glow);
+}
+
+.nav-icon-btn.active {
+  background-color: var(--color-accent-hover) !important;
+  box-shadow: 0 4px 14px var(--color-accent-glow);
+}
+
 /* Header Right Actions */
 .nav-actions {
   display: flex;
