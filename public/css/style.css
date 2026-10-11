@@ -2553,7 +2553,7 @@ button {
   align-items: center;
   gap: 40px;
   white-space: nowrap;
-  animation: marqueeScroll 30s linear infinite;
+  animation: marqueeScroll 60s linear infinite;
   width: max-content;
 }
 

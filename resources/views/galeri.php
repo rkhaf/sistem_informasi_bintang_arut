@@ -82,22 +82,28 @@ include "komponen/fungsi.php";
     <!-- Filter Bar -->
     <div class="gallery-filter-bar">
       <button class="gallery-filter-btn active" data-filter="semua">Semua</button>
+        <?php
+          $ambilTagGaleri = $db->tampil_data('SELECT * FROM tb_tag_galeri');
+            if(!empty($ambilTagGaleri)){
+              foreach($ambilTagGaleri as $data){
+              ?>
+                <button class="gallery-filter-btn" data-filter="motif"><?= $data['tag_label'] ?></button>
+              <?php
+
+              }
+            }
+        ?>
+      <!-- <button class="gallery-filter-btn active" data-filter="semua">Semua</button>
       <button class="gallery-filter-btn" data-filter="motif">Motif Batik</button>
       <button class="gallery-filter-btn" data-filter="proses">Proses Pembuatan</button>
       <button class="gallery-filter-btn" data-filter="detail">Detail Tekstur</button>
       <button class="gallery-filter-btn" data-filter="busana">Busana Modern</button>
-      <button class="gallery-filter-btn" data-filter="sentra">Sentra Paoman</button>
+      <button class="gallery-filter-btn" data-filter="sentra">Sentra Paoman</button> -->
     </div>
 
     <!-- Gallery Grid -->
     <section class="gallery-page-section">
       <div class="container">
-        <!-- ==========================================================================
-             PANDUAN MENGGANTI FOTO GALERI:
-             - Cukup ganti URL pada atribut: src="..." pada tag <img> di setiap kartu.
-             - Anda juga bisa mengubah judul pada <h4>, tag pada <span>, serta data-desc="...".
-             - Setiap foto di bawah sudah menggunakan gambar berbeda sesuai kategorinya.
-             ========================================================================== -->
         <div id="galeriGrid" class="gallery-page-grid">
 
           <!-- ==================== KATEGORI: MOTIF BATIK (motif) ==================== -->
