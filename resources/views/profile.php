@@ -413,6 +413,6 @@ include "komponen/fungsi.php";
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="js/script-core.js"></script>
 </body>
 </html>

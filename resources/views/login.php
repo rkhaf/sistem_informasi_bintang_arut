@@ -121,6 +121,7 @@ include "komponen/fungsi.php";
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="js/script-core.js"></script>
+  <script src="js/script-auth.js"></script>
 </body>
 </html>

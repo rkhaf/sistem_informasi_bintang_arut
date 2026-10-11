@@ -211,6 +211,7 @@ include "komponen/footer.php";
     </div>
   </div>
 
-  <script src="js/script.js"></script>
+  <script src="js/script-core.js"></script>
+  <script src="js/script-belanja.js"></script>
 </body>
 </html>

@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             TbJenisProdukTableSeeder::class,
             TbMotifTableSeeder::class,
             TbEtalaseTableSeeder::class,
+            TbTagGaleriTableSeeder::class,
             TbGaleriTableSeeder::class,
         ]);
     }

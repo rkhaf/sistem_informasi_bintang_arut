@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id('id_galeri');
             $table->foreignUuid('id_motif')->constrained('tb_motif', 'id_motif')->cascadeOnDelete();
             $table->text('filosofi');
+            $table->foreignUuid('id_tag')->constrained('tb_tag_galeri', 'id_tag')->cascadeOnDelete();
+            // $table->string('tag');
             $table->date('tahun_pembuatan');
             $table->timestamps();
         });

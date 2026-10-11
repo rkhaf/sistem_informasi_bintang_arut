@@ -44,7 +44,18 @@ include "komponen/fungsi.php";
     <!-- Marquee / Walking Animation -->
     <div class="gallery-marquee-strip">
       <div class="gallery-marquee-track">
-        <span class="marquee-item">Iwak Etong</span>
+        <?php
+          $ambilMotif = $db->tampil_data('SELECT * FROM tb_motif');
+            if(!empty($ambilMotif)){
+              foreach($ambilMotif as $data){
+              ?>
+                <span class="marquee-item"><?= $data['nama_motif'] ?></span>
+              <?php
+
+              }
+            }
+        ?>
+        <!-- <span class="marquee-item">Iwak Etong</span>
         <span class="marquee-item">Kapal Kandas</span>
         <span class="marquee-item">Merak Ngibing</span>
         <span class="marquee-item">Sawat Kembang</span>
@@ -53,9 +64,9 @@ include "komponen/fungsi.php";
         <span class="marquee-item">Singa Barong</span>
         <span class="marquee-item">Buketan Flora</span>
         <span class="marquee-item">Lokcan Phoenix</span>
-        <span class="marquee-item">Ganggeng Laut</span>
+        <span class="marquee-item">Ganggeng Laut</span> -->
         <!-- Duplicate for seamless loop -->
-        <span class="marquee-item">Iwak Etong</span>
+        <!-- <span class="marquee-item">Iwak Etong</span>
         <span class="marquee-item">Kapal Kandas</span>
         <span class="marquee-item">Merak Ngibing</span>
         <span class="marquee-item">Sawat Kembang</span>
@@ -64,7 +75,7 @@ include "komponen/fungsi.php";
         <span class="marquee-item">Singa Barong</span>
         <span class="marquee-item">Buketan Flora</span>
         <span class="marquee-item">Lokcan Phoenix</span>
-        <span class="marquee-item">Ganggeng Laut</span>
+        <span class="marquee-item">Ganggeng Laut</span> -->
       </div>
     </div>
 
@@ -93,8 +104,9 @@ include "komponen/fungsi.php";
           
           <?php
           $query = $db->tampil_data('SELECT * FROM tb_galeri tbg
-                                    INNER JOIN tb_motif tbm
-                                    ON tbg.id_motif=tbm.id_motif');
+                                    INNER JOIN tb_motif tbm INNER JOIN tb_tag_galeri tbt
+                                    ON tbg.id_motif=tbm.id_motif
+                                    AND tbt.id_tag=tbg.id_tag');
           if(!empty($query)){
             foreach($query as $data){
             ?>
@@ -102,7 +114,7 @@ include "komponen/fungsi.php";
               <div class="gallery-page-card" data-category="motif" data-title="Motif Iwak Etong" data-tag="Motif Batik" data-desc="Motif ikan etong khas pesisir laut Jawa Utara, melambangkan kelimpahan rezeki bahari dan rasa syukur nelayan Dermayon.">
                 <img src="<?= $data['foto_motif'] ?>" alt="<?= $data['nama_motif'] ?>" loading="lazy">
                 <div class="gallery-page-overlay">
-                  <span class="gallery-page-tag">Motif Batik</span>
+                  <span class="gallery-page-tag"><?= $data['tag_label'] ?></span>
                   <h4 class="gallery-page-title"><?= $data['nama_motif'] ?></h4>
                 </div>
               </div>
@@ -165,6 +177,7 @@ include "komponen/footer.php";
     </div>
   </div>
 
-  <script src="js/script.js"></script>
+  <script src="js/script-core.js"></script>
+  <script src="js/script-galeri.js"></script>
 </body>
 </html>
